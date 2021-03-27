@@ -1,0 +1,41 @@
+{
+  "name": "GraphQL-Node-Express-Postgres-Sequelize",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js",
+    "setup": "yarn dbcreate && yarn migrate && yarn seed ",
+    "dbcreate": "npx sequelize-cli db:create",
+    "migrate": "npx sequelize-cli db:migrate",
+    "unmigrate": "npx sequelize-cli db:migrate:undo:all",
+    "seed": "npx sequelize-cli db:seed:all",
+    "unseed": "npx sequelize-cli db:seed:undo:all",
+    "sequelize:init": "node_modules/.bin/sequelize init",
+    "create:migration": "npx sequelize-cli model:generate --name %npm_config_model% --attributes name:string",
+    "create:seed": "npx sequelize-cli seed:generate --name %npm_config_model%",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.9.7",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "core-js": "^3.8.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3",
+    "merge-graphql-schemas": "^1.7.8",
+    "moment": "^2.29.1",
+    "nodemon": "^1.18.4",
+    "pg": "^7.4.3",
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "2.2.1"
+  }
+}
